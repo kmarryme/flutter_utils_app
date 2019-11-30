@@ -9,21 +9,21 @@ class AppTheme{
     //墨水喷溅的颜色。
     splashColor: Colors.transparent,
     //App主要部分的背景色（ToolBar,Tabbar等）。
-    primaryColor: Color(0xffF5F3F9),
+    primaryColor: Colors.white,
     //primaryColor的较亮版本。
-    primaryColorLight: Color(0xffEBECF2),
+    primaryColorLight: Colors.white,
     //primaryColor的较暗版本。
-    primaryColorDark: Color(0xffF5F6FE),
+    primaryColorDark: Colors.white,
     //作为Scaffold基础的Material默认颜色，典型Material应用或应用内页面的背景颜色。
     scaffoldBackgroundColor: Colors.white,
     //MaterialType.canvas Material的默认颜色。(画布)
-    canvasColor: Color(0xffFAFAFA),
+    canvasColor: Colors.white,
     //Material中RaisedButtons使用的默认填充色。
-    buttonColor: Colors.white,
+    buttonColor: Color(0xffD86D2B),
     //Material被用作Card时的颜色。
     cardColor: Colors.white,
     //与primaryColor对比的颜色(例如 用作进度条的剩余部分)。 --用作大部分的背景颜色
-    backgroundColor: Color(0xffF5F3F9),
+    backgroundColor: Color(0xffF7F8F9),
     //Dialog元素的背景色。
     dialogBackgroundColor: Color(0xff302E3C),
     //IconThemeData类型，与卡片和画布颜色形成对比的图标主题。
@@ -59,7 +59,7 @@ class AppTheme{
 
     //IconThemeData类型，与原色(primary color)形成对比的图标主题。
     primaryIconTheme : IconThemeData(
-      color: Color(0xffEEA53C)
+      color: Colors.black
     ),
 
     //BottomAppBar的默认颜色。
@@ -75,7 +75,7 @@ class AppTheme{
     errorColor: Colors.red,
 
     //用于提示文本或占位符文本的颜色，例如在TextField中。
-    hintColor: Colors.white,
+    hintColor: Colors.black,
 
     //TabBar中选项选中的指示器颜色。
     indicatorColor: Colors.blue,
@@ -147,7 +147,7 @@ class AppTheme{
     //materialTapTargetSize: 
 
     //PageTransitionsTheme类型,每个目标平台的默认MaterialPageRoute转换。
-    //pageTransitionsTheme: 
+    // pageTransitionsTheme: 
 
     //ColorScheme类型,一组13种颜色，可用于配置大多数组件的颜色属性。
     //colorScheme
@@ -160,21 +160,21 @@ class AppTheme{
   ///黑色主题
   static final ThemeData blackVersionTheme = ThemeData(
     //作为Scaffold基础的Material默认颜色，典型Material应用或应用内页面的背景颜色。
-    scaffoldBackgroundColor: Color(0xff032430),
+    scaffoldBackgroundColor: Color(0xff302E3C),
     //App主要部分的背景色（ToolBar,Tabbar等）。
-    primaryColor: Color(0xff052739),
+    primaryColor: Color(0xff302E3C),
     //primaryColor的较暗版本。
-    primaryColorDark: Color(0xffF5F6FE).withOpacity(0.16),
+    primaryColorDark: Color(0xff302E3C).withOpacity(0.16),
     //Material被用作Card时的颜色。
-    cardColor: Color(0xff032430),
+    cardColor: Color(0xff302E3C),
     //与primaryColor对比的颜色(例如 用作进度条的剩余部分)。 --用作大部分的背景颜色
-    backgroundColor: Color(0xff052739),
+    backgroundColor: Color(0xff232323),
     //Material中RaisedButtons使用的默认填充色。
-    buttonColor: Color(0xff032430),
+    buttonColor: Color(0xffD86D2B),
     //MaterialType.canvas Material的默认颜色。(画布)
-    canvasColor: Color(0xff001E1B),
+    canvasColor: Color(0xff302E3C),
     //primaryColor的较亮版本。
-    primaryColorLight: Color(0xff001E1B),
+    primaryColorLight: Color(0xff302E3C),
     //IconThemeData类型，与卡片和画布颜色形成对比的图标主题。
     iconTheme: IconThemeData(
       color: Colors.white
@@ -214,7 +214,7 @@ class AppTheme{
     dialogBackgroundColor: Colors.white,
 
     //BottomAppBar的默认颜色。
-    bottomAppBarColor: Color(0xff032430),
+    bottomAppBarColor: Color(0xff302E3C),
 
     //墨水喷溅的颜色。
     splashColor: Colors.transparent,
@@ -312,4 +312,5 @@ class AppTheme{
   );
   
 }
+
 

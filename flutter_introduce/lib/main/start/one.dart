@@ -3,8 +3,8 @@ import 'package:flutter_introduce/utils/counter_model.dart';
 import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
-class Samurai extends StatelessWidget {
-  const Samurai({Key key}) : super(key: key);
+class One extends StatelessWidget {
+  const One({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +49,32 @@ class Samurai extends StatelessWidget {
                   height: 400,
                   color: Colors.red,
                 ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 20),
+        Consumer<CounterModel>(
+          builder: (context, notifier, child){
+            return Opacity(
+              opacity: math.max(0, 1 - 4 * notifier.page),
+              child: child,
+            );
+          },
+          child: Column(
+            children: <Widget>[
+              Text("12345",style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5)),
+              SizedBox(height: 16),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28),
+                child: Text(
+                  "123456789012345678901234567890",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black45
+                  )
+                )
               )
             ],
           ),

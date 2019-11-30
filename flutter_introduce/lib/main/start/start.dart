@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_introduce/index/index.dart';
 import 'package:flutter_introduce/utils/counter_model.dart';
+import 'package:flutter_introduce/utils/pageIndicator.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'dart:math' as math;
 
-import 'samurai.dart';
+import 'one.dart';
+import 'three.dart';
+import 'two.dart';
 
 ///启动页面
 class Start extends StatefulWidget {
@@ -16,7 +22,7 @@ class Start extends StatefulWidget {
 class _StartState extends State<Start> {
   PageController _pageController;
 
-@override
+  @override
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
     _pageController = PageController();
@@ -31,12 +37,12 @@ class _StartState extends State<Start> {
         body: Column(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(20, 16, 20, 10),
+              padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).padding.top, 20, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Hops",
+                    "FLUTTER",
                     style: TextStyle(
                       fontSize: 22,
                       fontFamily: "Graphik",
@@ -73,21 +79,47 @@ class _StartState extends State<Start> {
                   Provider.of<CounterModel>(context).index = index;
                 },
                 children: <Widget>[
-                  Samurai(),
-                  Samurai(),
-                  Samurai(),
-                  // Reject(),
-                  // Greatwave()
+                  One(),
+                  Two(),
+                  Three(),
                 ],
               ),
-            )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                PageIndicator(),
+                Text(
+                  "NEXT",
+                  style: TextStyle(
+                    fontFamily: "Graphik",
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 3
+                  )
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: IconButton(
+                    icon: SvgPicture.asset("assets/svg/arrow_right.svg", width: 200),
+                    onPressed: (){
+                      if(_pageController.page <= 1){
+                        _pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
+                      } else {
+                        Navigator.pushReplacement(context, CustomRoute(Index()));
+                      }
+                    },
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 8 + MediaQuery.of(context).padding.bottom)
           ],
         ),
     );
   }
 }
 
-// onPressed: () => Navigator.pushAndRemoveUntil(context, CustomRoute(TabIndex()), (route) => route == null)),
+
 
 ///跳转动画
 class CustomRoute extends PageRouteBuilder {

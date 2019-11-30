@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_introduce/all/my_text.dart';
 
 final routes = {
-  // "/message": (context) => Message(), //消息页面
+  "/my_text": (context) => MyText(), 
 };
 
 
@@ -22,3 +23,4 @@ var onGenerateRoute = (RouteSettings settings) {
     }
   }
 };
+
