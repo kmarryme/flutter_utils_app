@@ -1,7 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_introduce/index/model.dart';
 import 'package:flutter_introduce/utils/page_indicator.dart';
+import 'package:flutter_introduce/utils/suspension.dart';
 
+///首页
 class Index extends StatefulWidget {
   Index({Key key}) : super(key: key);
 
@@ -22,62 +26,54 @@ class _IndexState extends State<Index> {
       // ),
       child: Scaffold(
         // backgroundColor: Colors.transparent,
-        // bottomNavigationBar: BottomNavigationBar(
-        //   backgroundColor: Colors.transparent,
-        //   elevation: 0,
-        //   unselectedIconTheme: Theme.of(context).iconTheme,
-        //   selectedIconTheme: Theme.of(context).iconTheme,
-        //   items: [
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.settings),
-        //       title: Text("")
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.settings),
-        //       title: Text("")
-        //     )
-        //   ],
-        // ),
         body: Container(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top, bottom: MediaQuery.of(context).padding.bottom),
-          child: Column(
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          child: Stack(
             children: <Widget>[
-              Expanded(
-                flex: 90,
-                child: PageView(
-                  children: <Widget>[
-                    PageViewOne(),
-                    PageViewOne()
-                  ],
-                  onPageChanged: (int index){
-                    setState(() {
-                      pageIndex = index;
-                    });
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 10,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: double.infinity,
-                  margin: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
-                  height: 50,
-                  child: MyPageIndicator(
-                    currentIndex: pageIndex,
-                    pageCount: 2,
-                    unselectedColor: Colors.grey.withOpacity(0.3),
-                    selectedColor: Colors.black,
+              Column(
+                children: <Widget>[
+                  Expanded(
+                    flex: 90,
+                    child: PageView(
+                      children: <Widget>[
+                        PageViewOne(),
+                        PageViewOne()
+                      ],
+                      onPageChanged: (int index){
+                        setState(() {
+                          pageIndex = index;
+                        });
+                      },
+                    ),
                   ),
-                ),
-              )
+                  Expanded(
+                    flex: 10,
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      margin: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+                      height: 50,
+                      child: MyPageIndicator(
+                        currentIndex: pageIndex,
+                        pageCount: 2,
+                        unselectedColor: Colors.grey.withOpacity(0.3),
+                        selectedColor: Colors.black,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Suspension()
             ],
-          ),
+          )
         ),
-    ),
+      ),
     );
   }
 }
+
+
+
 
 class PageViewOne extends StatelessWidget {
   @override
@@ -108,10 +104,14 @@ class PageViewOne extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: Colors.black.withOpacity(0.2),
                   ),
-                  child: Data.allDataModel[index].widget,
+                  child: Hero(
+                    tag: Data.allDataModel[index].name,
+                    child: Data.allDataModel[index].widget,
+                  ),
                 ),
                 onTap: (){
-                  Navigator.push(context, ScaleRoute(page: Data.allDataModel[index].page));
+                  int type = Random().nextInt(4);
+                  Navigator.push(context, CustomRoute(Data.allDataModel[index].page, type));
                 },
               ),
             ),
@@ -123,37 +123,82 @@ class PageViewOne extends StatelessWidget {
   }
 }
 
+class CustomRoute extends PageRouteBuilder{
+  final Widget widget;
+  final int type;
 
-class ScaleRoute extends PageRouteBuilder {
-  final Widget page;
-  ScaleRoute({this.page})
-    : super(
-      pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-      ) => page,
-      transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-      ) => ScaleTransition(
-        scale: Tween<double>(
-          begin: 0.0,
-          end: 1.0,
-        ).animate(
-          CurvedAnimation(
-            parent: animation,
+  CustomRoute(this.widget, this.type)
+  :super(
+    // 设置过度时间
+    transitionDuration:Duration(milliseconds: 500),
+    // 构造器
+    pageBuilder:(
+      // 上下文和动画
+      BuildContext context,
+      Animation<double> animaton1,
+      Animation<double> animaton2,
+    ){
+      return widget;
+    },
+    transitionsBuilder:(
+      BuildContext context,
+      Animation<double> animaton1,
+      Animation<double> animaton2,
+      Widget child,
+    ){
+      if(type == 0){
+        return FadeTransition(
+          opacity: Tween(begin: 0.0,end: 1.0)
+          .animate(CurvedAnimation(
+            parent: animaton1,
             curve: Curves.fastOutSlowIn,
+          )),
+          child: child,
+        );
+      }else if(type == 1){
+        //缩放动画效果
+        return ScaleTransition(
+          scale: Tween(begin: 0.0,end: 1.0).animate(CurvedAnimation(
+            parent: animaton1,
+            curve: Curves.fastOutSlowIn
+          )),
+          child: child,
+        );
+      }else if(type == 2){
+        // 旋转加缩放动画效果
+        return RotationTransition(
+          turns: Tween(begin: 0.0,end: 1.0)
+          .animate(CurvedAnimation(
+            parent: animaton1,
+            curve: Curves.fastOutSlowIn,
+          )),
+          child: ScaleTransition(
+            scale: Tween(begin: 0.0,end: 1.0)
+            .animate(CurvedAnimation(
+              parent: animaton1,
+              curve: Curves.fastOutSlowIn
+            )),
+            child: child,
           ),
-        ),
-        child: child,
-      ),
-    );
+        );
+      }else{
+        // 左右滑动动画效果
+        return SlideTransition(
+          position: Tween<Offset>(
+            // 设置滑动的 X , Y 轴
+            begin: Offset(-1.0, 0.0),
+            end: Offset(0.0,0.0)
+          ).animate(CurvedAnimation(
+            parent: animaton1,
+            curve: Curves.fastOutSlowIn
+          )),
+          child: child,
+        );
+      }
+
+    }
+  );
 }
-
-
 
 
 
