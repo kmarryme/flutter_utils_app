@@ -37,7 +37,6 @@ class _IndexState extends State<Index> {
                     child: PageView(
                       children: <Widget>[
                         PageViewOne(),
-                        PageViewOne()
                       ],
                       onPageChanged: (int index){
                         setState(() {
@@ -55,7 +54,7 @@ class _IndexState extends State<Index> {
                       height: 50,
                       child: MyPageIndicator(
                         currentIndex: pageIndex,
-                        pageCount: 2,
+                        pageCount: 1,
                         unselectedColor: Colors.grey.withOpacity(0.3),
                         selectedColor: Colors.black,
                       ),
@@ -71,9 +70,6 @@ class _IndexState extends State<Index> {
     );
   }
 }
-
-
-
 
 class PageViewOne extends StatelessWidget {
   @override
@@ -97,21 +93,21 @@ class PageViewOne extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: GestureDetector(
-                child: Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(bottom: 5),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.black.withOpacity(0.2),
-                  ),
-                  child: Hero(
-                    tag: Data.allDataModel[index].name,
+                child: Hero(
+                  tag: Data.allDataModel[index].name,
+                  child: Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(bottom: 5),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black.withOpacity(0.2),
+                    ),
                     child: Data.allDataModel[index].widget,
                   ),
                 ),
                 onTap: (){
                   int type = Random().nextInt(4);
-                  Navigator.push(context, CustomRoute(Data.allDataModel[index].page, type));
+                  Navigator.push(context, CustomRoute(Data.allDataModel[index].page, 0));
                 },
               ),
             ),

@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ///浮窗
@@ -54,21 +55,59 @@ class _SuspensionState extends State<Suspension> {
             });
           }
         },
-        child: Container(
-          width: kFloatWidgetSize,
-          height: kFloatWidgetSize,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(kFloatWidgetRadius)),
-            color: Colors.grey.withOpacity(0.3),
-          ),
-          child: Center(
-            child: ClipOval(
-              child: Container(
-                width: kFloatWidgetSize - 30,
-                height: kFloatWidgetSize - 30,
-                color: Colors.white.withOpacity(0.8),
+        child: Hero(
+          tag: "suspension",
+          child: AnimatedContainer(
+            width: kFloatWidgetSize,
+            height: kFloatWidgetSize,
+            duration: Duration(milliseconds: 300),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(kFloatWidgetRadius)),
+              color: Colors.grey.withOpacity(0.3),
+            ),
+            child: Center(
+              child: ClipOval(
+                child: Container(
+                  width: kFloatWidgetSize - 30,
+                  height: kFloatWidgetSize - 30,
+                  color: Colors.white.withOpacity(0.8),
+                ),
               ),
             ),
+          )
+        ),
+        onTap: (){
+          showDialog(
+            context : context,
+            // barrierDismissible: true,
+            builder: (context){
+              return SuspensionPage();
+            }
+          );
+        },
+      ),
+    );
+  }
+}
+
+class SuspensionPage extends StatefulWidget {
+  SuspensionPage({Key key}) : super(key: key);
+
+  @override
+  _SuspensionPageState createState() => _SuspensionPageState();
+}
+
+class _SuspensionPageState extends State<SuspensionPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Hero(
+      tag: "suspension",
+      child: GestureDetector(
+        child: Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            color: Colors.red,
           ),
         ),
       ),
