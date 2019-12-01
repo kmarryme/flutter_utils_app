@@ -27,7 +27,7 @@ class _IndexState extends State<Index> {
       child: Scaffold(
         // backgroundColor: Colors.transparent,
         body: Container(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10),
           child: Stack(
             children: <Widget>[
               Column(

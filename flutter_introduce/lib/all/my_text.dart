@@ -32,42 +32,43 @@ class MyText extends StatelessWidget {
   }
 }
 
-class TextBody extends StatefulWidget {
-  TextBody({Key key}) : super(key: key);
-
-  @override
-  _TextBodyState createState() => _TextBodyState();
-}
-
-class _TextBodyState extends State<TextBody> {
-
+class TextBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         SizedBox(height: 10),
+
         Text('默认文本显示'),
+
         SizedBox(height: 10),
+
         Text(
           '文本大小设置',
           style: TextStyle(
             fontSize: 20,
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '这一行文本是：当字数太多，屏幕宽度着不下的时候在文本最后显示省略号,最多显示两行。 这一行文本是：当字数太多，屏幕宽度着不下的时候在文本最后显示省略号,最多显示两行。 ',
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本添加背景颜色',
           style: TextStyle(
             backgroundColor: Color.fromARGB(88, 255, 0, 0),
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本添加颜色',
           style: TextStyle(
@@ -75,16 +76,36 @@ class _TextBodyState extends State<TextBody> {
             color: Color.fromARGB(100, 0, 0, 128),
           ),
         ),
+
         SizedBox(height: 10),
-        Text('文本添加下划线', style: TextStyle(decoration: TextDecoration.underline)),
+
+        Text(
+          '文本添加下划线',
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+          ),
+        ),
+        
         SizedBox(height: 10),
-        Text('文本添加上划线', style: TextStyle(decoration: TextDecoration.overline)),
+
+        Text(
+          '文本添加上划线',
+          style: TextStyle(
+            decoration: TextDecoration.overline,
+          ),
+        ),
+        
         SizedBox(height: 10),
+
         Text(
           '文本添加删除/中划线',
-          style: TextStyle(decoration: TextDecoration.lineThrough),
+          style: TextStyle(
+            decoration: TextDecoration.lineThrough
+          ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本划线颜色',
           style: TextStyle(
@@ -92,7 +113,9 @@ class _TextBodyState extends State<TextBody> {
             decorationColor: Color(0xffff0000),
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本两条下划线',
           style: TextStyle(
@@ -101,7 +124,9 @@ class _TextBodyState extends State<TextBody> {
             decoration: TextDecoration.underline,
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本虚线下划线',
           style: TextStyle(
@@ -110,7 +135,9 @@ class _TextBodyState extends State<TextBody> {
             decoration: TextDecoration.underline,
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本点线下划线',
           style: TextStyle(
@@ -119,7 +146,9 @@ class _TextBodyState extends State<TextBody> {
             decoration: TextDecoration.underline,
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本实线下划线',
           style: TextStyle(
@@ -128,7 +157,9 @@ class _TextBodyState extends State<TextBody> {
             decoration: TextDecoration.underline,
           ),
         ),
+
         SizedBox(height: 10),
+
         Text(
           '文本波浪线下划线',
           style: TextStyle(
@@ -137,31 +168,82 @@ class _TextBodyState extends State<TextBody> {
             decoration: TextDecoration.underline,
           ),
         ),
+
         SizedBox(height: 10),
-        Text('文本默认加粗', style: TextStyle(fontWeight: FontWeight.bold)),
+
+        Text(
+          '文本默认加粗', 
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          )
+        ),
+        
         SizedBox(height: 10),
+
         Text(
           '文本粗细比重 w100 -- w900',
-          style: TextStyle(fontWeight: FontWeight.w900),
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+          ),
         ),
+
         SizedBox(height: 10),
-        Text('文本斜体字', style: TextStyle(fontStyle: FontStyle.italic)),
+
+        Text(
+          '文本斜体字', 
+          style: TextStyle(
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        
         SizedBox(height: 10),
-        Text('单词之间间隔，中文无效。How are you', style: TextStyle(wordSpacing: 20)),
+
+        Text(
+          '单词之间间隔，中文无效。How are you', 
+          style: TextStyle(
+            wordSpacing: 20,
+          ),
+        ),
+        
         SizedBox(height: 10),
-        Text('文本字与字之间间隔', style: TextStyle(letterSpacing: 20)),
+
+        Text(
+          '文本字与字之间间隔', 
+          style: TextStyle(
+            letterSpacing: 20,
+          ),
+        ),
+        
         SizedBox(height: 10),
-        Text('文本行高（字体倍数）', style: TextStyle(height: 1.5)),
+        
+        Text('文本行高（字体倍数）',
+          style: TextStyle(
+            height: 1.5,
+          ),
+        ),
+        
         SizedBox(height: 10),
+        
         Text.rich(
           TextSpan(
-            text: 'Hello', // default text style
+            text: '一行文字', // default text style
             children: <TextSpan>[
-              TextSpan(text: ' beautiful ', style: TextStyle(fontStyle: FontStyle.italic)),
-              TextSpan(text: 'world', style: TextStyle(fontWeight: FontWeight.bold)),
+              TextSpan(
+                text: '样式', 
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              TextSpan(
+                text: '不同', 
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
+
         SizedBox(height: 20),
       ],
     );

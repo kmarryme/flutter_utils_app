@@ -105,6 +105,7 @@ class _StartState extends State<Start> {
                       if(_pageController.page <= 1){
                         _pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
                       } else {
+                        SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
                         Navigator.pushReplacement(context, CustomRoute(Index()));
                       }
                     },
