@@ -13,7 +13,7 @@ class MyText extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Text文本显示和样式"),
+          title: Text("Text"),
         ),
         body: SingleChildScrollView(
           child: TextBody(),

@@ -22,14 +22,14 @@ class _IndexState extends State<Index> {
         ScreenUtil(width: 414, height: 812, allowFontScaling: true)
           ..init(context); //屏幕适配 414*812
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("images/bg1.jpg"),
-          fit: BoxFit.fitHeight
-        )
-      ),
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     image: AssetImage("images/bg1.jpg"),
+      //     fit: BoxFit.fitHeight
+      //   )
+      // ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         body: Container(
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10),
           child: Stack(

@@ -1,12 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_introduce/all/my_radio.dart';
 import 'package:flutter_introduce/all/my_text.dart';
 
 class Data {
   static List<Model> allDataModel = [
     Model(Icon(Icons.text_format), "Text", MyText()),
-    Model(Icon(Icons.radio_button_checked), "Radio", MyText()),
+    Model(Icon(Icons.radio_button_checked), "Radio", MyRadio()),
     Model(Icon(Icons.check_box), "CheckBox", MyText()),
     Model(Icon(Icons.add_box), "Button", MyText()),
     Model(Icon(Icons.switch_camera), "Switch", MyText()),
