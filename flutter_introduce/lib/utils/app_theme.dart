@@ -42,9 +42,9 @@ class AppTheme{
     //InputDecorationTheme类型，InputDecorator、TextField和TextFormField的默认InputDecoration值基于此主题。
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-      focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Color(0xffB1BAC9))),
-      enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Color(0xffB1BAC9))),
-      border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Color(0xffB1BAC9))),
+      focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.red)),
+      enabledBorder: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.red)),
+      border: OutlineInputBorder(borderSide: BorderSide(width: 1, color: Colors.red)),
       hintStyle: TextStyle(
         color: Color(0xff232323).withOpacity(0.5),
         fontSize: 16.0

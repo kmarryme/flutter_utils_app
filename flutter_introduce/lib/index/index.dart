@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_introduce/index/model.dart';
 import 'package:flutter_introduce/utils/page_indicator.dart';
 import 'package:flutter_introduce/utils/suspension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///首页
 class Index extends StatefulWidget {
@@ -17,15 +18,18 @@ class _IndexState extends State<Index> {
   int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance =
+        ScreenUtil(width: 414, height: 812, allowFontScaling: true)
+          ..init(context); //屏幕适配 414*812
     return Container(
-      // decoration: BoxDecoration(
-      //   image: DecorationImage(
-      //     image: AssetImage("images/bg1.jpg"),
-      //     fit: BoxFit.fitHeight
-      //   )
-      // ),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/bg1.jpg"),
+          fit: BoxFit.fitHeight
+        )
+      ),
       child: Scaffold(
-        // backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
         body: Container(
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10),
           child: Stack(
