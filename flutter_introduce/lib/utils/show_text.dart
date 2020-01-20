@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ShowText extends StatelessWidget {
   final String text;
-  final double height;
-  const ShowText({Key key, @required this.text, @required this.height})
+  const ShowText({Key key, @required this.text})
       : super(key: key);
 
   @override
@@ -16,18 +15,13 @@ class ShowText extends StatelessWidget {
         vertical: ScreenUtil().setHeight(10),
       ),
       width: MediaQuery.of(context).size.width,
-      height: height,
-      child: CupertinoTextField(
-        enabled: false,
+      child: Text(
+        text,
         style: TextStyle(
           fontSize: ScreenUtil().setSp(14),
-          color: Theme.of(context).textTheme.body1.color.withOpacity(0.5),
-        ),
-        controller: TextEditingController(
-          text: text,
-        ),
-        decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
+          backgroundColor: Theme.of(context).backgroundColor,
+          color: Theme.of(context).textTheme.body1.color.withOpacity(0.8),
+          height: 1.5,
         ),
       ),
     );

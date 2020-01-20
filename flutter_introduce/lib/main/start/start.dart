@@ -5,7 +5,6 @@ import 'package:flutter_introduce/utils/counter_model.dart';
 import 'package:flutter_introduce/utils/pageIndicator.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'dart:math' as math;
 
 import 'one.dart';
 import 'three.dart';
