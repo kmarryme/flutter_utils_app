@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_introduce/all/my_text.dart';
+import 'main/system/favorite.dart';
+import 'main/system/setting.dart';
 
 final routes = {
-  "/my_text": (context) => MyText(), 
+  "/favorite": (context) => Favorite(), 
+  "/setting": (context) => Setting(), 
 };
 
 
