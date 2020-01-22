@@ -102,7 +102,7 @@ class _FavoriteBodyState extends State<FavoriteBody> {
       child: Container(
         height: ScreenUtil().setHeight(50),
         margin: EdgeInsets.symmetric(
-          vertical: ScreenUtil().setHeight(5),
+          vertical: ScreenUtil().setHeight(8),
         ),
         padding: EdgeInsets.symmetric(
           horizontal: ScreenUtil().setWidth(10),
@@ -112,7 +112,7 @@ class _FavoriteBodyState extends State<FavoriteBody> {
           boxShadow: [
             BoxShadow(
               color: Colors.black45.withOpacity(0.1),
-              blurRadius: 5,
+              blurRadius: 3,
               spreadRadius: 3,
             ),
           ],
@@ -164,7 +164,7 @@ class _FavoriteBodyState extends State<FavoriteBody> {
         color: Colors.red,
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(
-          vertical: ScreenUtil().setHeight(5),
+          vertical: ScreenUtil().setHeight(8),
         ),
         child: Icon(favoriteList.contains(data)
             ? Icons.favorite

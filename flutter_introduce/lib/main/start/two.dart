@@ -92,7 +92,7 @@ class Two extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black45
+                    color: Theme.of(context).textTheme.body1.color.withOpacity(0.5),
                   )
                 )
               )

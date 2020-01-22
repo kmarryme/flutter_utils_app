@@ -25,15 +25,11 @@ class _IndexState extends State<Index> {
 
   @override
   void initState() {
-    controller = PageController(initialPage: 1);
-    WidgetsBinding.instance.addPostFrameCallback((res) {
-      Future(() {
-        utilsGetData(CachingKey.app_theme_key, "bool").then((val) {
-          if (val != null) {
-            Provider.of<CounterModel>(context).changeTheme(val);
-          }
-        });
-      });
+    controller = PageController(initialPage: pageIndex);
+    utilsGetData(CachingKey.start_key, 'int').then((val) {
+      if (val != null) {
+        controller.jumpToPage(val);
+      }
     });
     super.initState();
   }
@@ -51,14 +47,14 @@ class _IndexState extends State<Index> {
         animationDuration: Duration(milliseconds: 500),
         options: getItemList(),
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/bg1.jpg"),
-              fit: BoxFit.fitHeight
-            )
-          ),
+          // decoration: BoxDecoration(
+          //   image: DecorationImage(
+          //     image: AssetImage("images/bg1.jpg"),
+          //     fit: BoxFit.fitHeight
+          //   )
+          // ),
           child: Scaffold(
-            backgroundColor: Colors.transparent,
+            // backgroundColor: Colors.transparent,
             resizeToAvoidBottomInset: false,
             body: Container(
               padding: EdgeInsets.only(
@@ -129,10 +125,10 @@ class _IndexState extends State<Index> {
           children: <Widget>[Text(name), Icon(icon)],
         ),
       ),
-      onTap: (){
-        if(name == "分享"){
+      onTap: () {
+        if (name == "分享") {
           ShareExtend.share("分享", "text");
-        }else{
+        } else {
           Navigator.pushNamed(context, path);
         }
       },
@@ -140,38 +136,3 @@ class _IndexState extends State<Index> {
   }
 }
 
-// bool appThemeFlag = false;
-
-// @override
-// void initState() {
-//   utilsGetData(CachingKey.app_theme_key, 'bool').then((val) {
-//     setState(() {
-//       appThemeFlag = !val;
-//     });
-//   });
-//   super.initState();
-// }
-
-// Container(
-//             margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(30)),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.end,
-//               children: <Widget>[
-//                 Text(
-//                   Provider.of<CounterModel>(context).appTheme ? '黑色主题' : '白色主题',
-//                   style: TextStyle(
-//                     color: Theme.of(context).textTheme.body1.color,
-//                     fontSize: ScreenUtil().setSp(16),
-//                   ),
-//                 ),
-//                 Switch(
-//                   value: appThemeFlag,
-//                   onChanged: (val) {
-//                     appThemeFlag = val;
-//                     Provider.of<CounterModel>(context).changeTheme(!val);
-//                     utilsetData(CachingKey.app_theme_key, !val);
-//                   },
-//                 ),
-//               ],
-//             ),
-//           ),

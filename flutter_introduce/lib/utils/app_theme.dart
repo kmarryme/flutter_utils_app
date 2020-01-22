@@ -28,7 +28,7 @@ class AppTheme{
     dialogBackgroundColor: Color(0xff302E3C),
     //IconThemeData类型，与卡片和画布颜色形成对比的图标主题。
     iconTheme: IconThemeData(
-      color: Colors.black
+      color: Colors.black87
     ),
     //TextTheme类型，与卡片和画布对比的文本颜色 ---字体颜色  
     textTheme: TextTheme(
@@ -61,7 +61,7 @@ class AppTheme{
 
     //IconThemeData类型，与原色(primary color)形成对比的图标主题。
     primaryIconTheme : IconThemeData(
-      color: Colors.black
+      color: Colors.black54
     ),
 
     //BottomAppBar的默认颜色。
@@ -211,7 +211,7 @@ class AppTheme{
     ),
     //IconThemeData类型，与原色(primary color)形成对比的图标主题。
     primaryIconTheme : IconThemeData(
-      color: Color(0xffEEA53C)
+      color: Colors.white
     ),   
 
     //Dialog元素的背景色。
