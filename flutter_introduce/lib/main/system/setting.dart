@@ -64,6 +64,7 @@ class _SettingState extends State<Setting> {
                 children: <Widget>[
                   SettingTheme(),
                   StartUp(),
+                  SecretProtection(),
                   GuideSetting(),
                 ],
               ),
@@ -90,7 +91,7 @@ class _SettingThemeState extends State<SettingTheme> {
   @override
   void initState() {
     utilsGetData(CachingKey.app_theme_key, 'bool').then((val) {
-      if(val != null){
+      if (val != null) {
         setState(() {
           appThemeFlag = val;
         });
@@ -250,6 +251,65 @@ class _StartUpState extends State<StartUp> {
   }
 }
 
+class SecretProtection extends StatefulWidget {
+  SecretProtection({Key key}) : super(key: key);
+
+  @override
+  _SecretProtectionState createState() => _SecretProtectionState();
+}
+
+class _SecretProtectionState extends State<SecretProtection> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: Container(
+        height: ScreenUtil().setHeight(50),
+        color: Theme.of(context).backgroundColor,
+        margin: EdgeInsets.only(
+          top: ScreenUtil().setHeight(15),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: ScreenUtil().setWidth(10),
+          vertical: ScreenUtil().setHeight(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icon(Icons.screen_lock_portrait),
+                Text(
+                  "密码方式",
+                  style: TextStyle(
+                    fontSize: ScreenUtil().setSp(16),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  "指纹",//密码  图案
+                  style: TextStyle(
+                    fontSize: ScreenUtil().setSp(14),
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  size: 15,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      onTap: (){
+        
+      },
+    );
+  }
+}
+
 class GuideSetting extends StatefulWidget {
   GuideSetting({Key key}) : super(key: key);
 
@@ -261,10 +321,10 @@ class _GuideSettingState extends State<GuideSetting> {
   bool switchFlag = true;
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
-    utilsGetData(CachingKey.guide_key, 'bool').then((val){
-      if(val != null){
+    utilsGetData(CachingKey.guide_key, 'bool').then((val) {
+      if (val != null) {
         setState(() {
           switchFlag = val;
         });
@@ -300,7 +360,7 @@ class _GuideSettingState extends State<GuideSetting> {
           ),
           CupertinoSwitch(
             value: switchFlag,
-            onChanged: (val){
+            onChanged: (val) {
               setState(() {
                 switchFlag = val;
               });
@@ -312,6 +372,7 @@ class _GuideSettingState extends State<GuideSetting> {
     );
   }
 }
+
 
 class Select extends StatefulWidget {
   final int initIndex;
@@ -396,3 +457,5 @@ class _SelectState extends State<Select> {
     );
   }
 }
+
+
