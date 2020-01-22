@@ -47,14 +47,14 @@ class _IndexState extends State<Index> {
         animationDuration: Duration(milliseconds: 500),
         options: getItemList(),
         child: Container(
-          // decoration: BoxDecoration(
-          //   image: DecorationImage(
-          //     image: AssetImage("images/bg1.jpg"),
-          //     fit: BoxFit.fitHeight
-          //   )
-          // ),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/bg1.jpg"),
+              fit: BoxFit.fitHeight
+            )
+          ),
           child: Scaffold(
-            // backgroundColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
             resizeToAvoidBottomInset: false,
             body: Container(
               padding: EdgeInsets.only(

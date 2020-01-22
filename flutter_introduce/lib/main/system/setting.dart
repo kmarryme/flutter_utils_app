@@ -90,9 +90,11 @@ class _SettingThemeState extends State<SettingTheme> {
   @override
   void initState() {
     utilsGetData(CachingKey.app_theme_key, 'bool').then((val) {
-      setState(() {
-        appThemeFlag = val;
-      });
+      if(val != null){
+        setState(() {
+          appThemeFlag = val;
+        });
+      }
     });
     super.initState();
   }

@@ -29,7 +29,7 @@ class Three extends StatelessWidget {
                   width: 340,
                   height: 340,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).backgroundColor,
                     shape: BoxShape.circle
                   ),
                 ),
