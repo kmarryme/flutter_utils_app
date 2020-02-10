@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_introduce/utils/counter_model.dart';
 import 'package:flutter_introduce/utils/pageIndicator.dart';
 import 'package:flutter_introduce/utils/utils_function.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gesture_recognition/gesture_view.dart';
 import 'package:provider/provider.dart';
 
 import 'one.dart';
@@ -24,9 +26,33 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
+  GlobalKey<GestureState> gestureStateKey = GlobalKey();
+  List correctResult = List();
+  String text = "请绘制启动密码";
+  bool openUnlock = false;
+
   @override
   void initState() {
     super.initState();
+    utilsGetData(CachingKey.pattern_list, 'string').then((res) {
+      if (res != null) {
+        List list = json.decode(res);
+        correctResult = list;
+      }
+    });
+    utilsGetData(CachingKey.open_unlock, 'bool').then((open) {
+      if (open != null && open) {
+        SystemChrome.setEnabledSystemUIOverlays([]);
+        setState(() {
+          openUnlock = true;
+        });
+      } else {
+        toPage();
+      }
+    });
+  }
+
+  toPage() {
     utilsGetData(CachingKey.guide_key, 'bool').then((val) {
       if (val == null || val) {
         SystemChrome.setEnabledSystemUIOverlays([]);
@@ -37,14 +63,58 @@ class _StartState extends State<Start> {
     });
   }
 
+  analysisGesture(List<int> items) {
+    bool isCorrect = true;
+    if (items.length == correctResult.length) {
+      for (int i = 0; i < items.length; i++) {
+        if (items[i] != correctResult[i]) {
+          isCorrect = false;
+          break;
+        }
+      }
+    } else {
+      isCorrect = false;
+    }
+    if (isCorrect) {
+      text = "密码正确";
+      toPage();
+    } else {
+      text = "密码错误";
+      gestureStateKey.currentState.selectColor = Colors.red;
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: CupertinoActivityIndicator(
-          radius: 20,
-        ),
-      ),
+      body: !openUnlock
+          ? Center(
+              child: CupertinoActivityIndicator(
+                radius: 20,
+              ),
+            )
+          : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("$text"),
+              GestureView(
+                key: this.gestureStateKey,
+                size: MediaQuery.of(context).size.width,
+                selectColor: Colors.blue,
+                onPanUp: (List<int> items) {
+                  analysisGesture(items);
+                },
+                onPanDown: () {
+                  gestureStateKey.currentState.selectColor = Colors.blue;
+                },
+              ),
+              InkWell(
+                child: Text("忘记密码？"),
+                onTap: () => toPage(),
+              ),
+            ],
+          ),
     );
   }
 }

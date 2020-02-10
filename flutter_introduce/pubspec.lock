@@ -121,6 +121,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  gesture_recognition:
+    dependency: "direct main"
+    description:
+      name: gesture_recognition
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   http_parser:
     dependency: transitive
     description:

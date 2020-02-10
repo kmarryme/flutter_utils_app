@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'main/system/favorite.dart';
+import 'main/system/pattern.dart';
 import 'main/system/setting.dart';
+import 'main/system/unlock_method.dart';
 
 final routes = {
   "/favorite": (context) => Favorite(), 
   "/setting": (context) => Setting(), 
+  "/unlock_method": (context) => UnlockMethod(), 
+  "/pattern_unlock": (context) =>  PatternUnlock(),
 };
 
 

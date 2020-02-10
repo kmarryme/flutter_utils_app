@@ -43,6 +43,8 @@ dependencies:
   flutter_slidable: ^0.5.3
   #分享
   share_extend: ^1.1.0
+  #图案密码
+  gesture_recognition: ^1.0.1
   
 
 dev_dependencies:

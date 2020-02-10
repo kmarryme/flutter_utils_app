@@ -304,7 +304,7 @@ class _SecretProtectionState extends State<SecretProtection> {
         ),
       ),
       onTap: (){
-        
+        Navigator.pushNamed(context, "/unlock_method");
       },
     );
   }
