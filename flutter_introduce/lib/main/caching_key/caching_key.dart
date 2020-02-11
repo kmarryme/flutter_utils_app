@@ -8,4 +8,5 @@ class CachingKey{
   ///null || 0--无 1--图案  2--数字密码  3--指纹
   static const String unlock_method = "unlock_method";
   static const String pattern_list = "pattern_list";
+  static const String number_password = "number_password";
 }

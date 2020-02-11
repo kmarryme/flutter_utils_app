@@ -259,8 +259,38 @@ class SecretProtection extends StatefulWidget {
 }
 
 class _SecretProtectionState extends State<SecretProtection> {
+  String secret = "关闭";
+
+  @override
+  void initState() {
+    super.initState();
+    utilsGetData(CachingKey.open_unlock, 'bool').then((unlock) {
+      if (unlock != null && unlock) {
+        utilsGetData(CachingKey.unlock_method, 'int').then((method) {
+          WidgetsBinding.instance.addPostFrameCallback((callback) {
+            if (method != null) {
+              Provider.of<CounterModel>(context).changesUnlockMethod(method);
+            } else {
+              Provider.of<CounterModel>(context).changesUnlockMethod(0);
+            }
+          });
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    int unlock = Provider.of<CounterModel>(context).unlockMethod;
+    if (unlock == 0) {
+      secret = "关闭";
+    } else if (unlock == 1) {
+      secret = "图案";
+    } else if (unlock == 2) {
+      secret = "数字";
+    } else if (unlock == 3) {
+      secret = "指纹";
+    }
     return InkWell(
       child: Container(
         height: ScreenUtil().setHeight(50),
@@ -289,7 +319,7 @@ class _SecretProtectionState extends State<SecretProtection> {
             Row(
               children: <Widget>[
                 Text(
-                  "指纹",//密码  图案
+                  "$secret", //密码  图案
                   style: TextStyle(
                     fontSize: ScreenUtil().setSp(14),
                   ),
@@ -303,7 +333,7 @@ class _SecretProtectionState extends State<SecretProtection> {
           ],
         ),
       ),
-      onTap: (){
+      onTap: () {
         Navigator.pushNamed(context, "/unlock_method");
       },
     );
@@ -364,6 +394,7 @@ class _GuideSettingState extends State<GuideSetting> {
               setState(() {
                 switchFlag = val;
               });
+              // utilsDeleteData([CachingKey.unlock_method]);
               utilsetData(CachingKey.guide_key, switchFlag);
             },
           ),
@@ -372,7 +403,6 @@ class _GuideSettingState extends State<GuideSetting> {
     );
   }
 }
-
 
 class Select extends StatefulWidget {
   final int initIndex;
@@ -457,5 +487,3 @@ class _SelectState extends State<Select> {
     );
   }
 }
-
-

@@ -5,6 +5,7 @@ import 'package:flutter_introduce/utils/page_indicator.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:share_extend/share_extend.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../utils/counter_model.dart';
 import '../utils/utils_function.dart';
@@ -111,7 +112,7 @@ class _IndexState extends State<Index> {
       getItem("分享", Icons.share, ""),
       getItem("设置", Icons.settings, "/setting"),
       getItem("反馈", Icons.email, ""),
-      getItem("关于", Icons.help, ""),
+      getItem("关于", Icons.help, "/about"),
     ];
   }
 
@@ -128,7 +129,9 @@ class _IndexState extends State<Index> {
       onTap: () {
         if (name == "分享") {
           ShareExtend.share("分享", "text");
-        } else {
+        } else if(name == "反馈"){
+          launch("mailto:swangke@163.com");
+        }else{
           Navigator.pushNamed(context, path);
         }
       },

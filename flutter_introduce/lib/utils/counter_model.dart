@@ -41,8 +41,13 @@ class CounterModel with ChangeNotifier {
     notifyListeners();
   }
 
-  
-
+  ///密码方式
+  int _unlockMethod = 0;
+  int get unlockMethod => _unlockMethod;
+  void changesUnlockMethod(int type) {
+    _unlockMethod = type;
+    notifyListeners();
+  }
 }
 
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'main/system/about.dart';
 import 'main/system/favorite.dart';
+import 'main/system/number_pwd.dart';
 import 'main/system/pattern.dart';
 import 'main/system/setting.dart';
 import 'main/system/unlock_method.dart';
@@ -9,6 +11,8 @@ final routes = {
   "/setting": (context) => Setting(), 
   "/unlock_method": (context) => UnlockMethod(), 
   "/pattern_unlock": (context) =>  PatternUnlock(),
+  "/number_pwd": (context) =>  NumberPwd(),
+  "/about": (context) =>  About(),
 };
 
 

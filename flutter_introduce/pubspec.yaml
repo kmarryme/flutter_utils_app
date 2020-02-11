@@ -45,6 +45,12 @@ dependencies:
   share_extend: ^1.1.0
   #图案密码
   gesture_recognition: ^1.0.1
+  #仿苹果手机解锁密码
+  passcode_screen: ^1.0.2
+  #指纹 人脸识别
+  local_auth: ^0.6.1
+  #打开第三方
+  url_launcher: ^5.4.1
   
 
 dev_dependencies:

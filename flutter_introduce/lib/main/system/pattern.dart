@@ -19,7 +19,6 @@ class _PatternUnlockState extends State<PatternUnlock> {
   List<int> correctResult = List();
   String text = "绘制解锁图案";
   bool again = false;
-  int status = 0; // 0: NONE,1: SUCCESS,2: ERROR
 
   analysisGesture(List<int> items) {
     bool isCorrect = true;
@@ -36,7 +35,8 @@ class _PatternUnlockState extends State<PatternUnlock> {
     if(isCorrect){
       gestureStateKey.currentState.selectColor = Colors.blue;
       utilsetData(CachingKey.pattern_list, json.encode(items));
-      Navigator.pop(context, true);
+      utilsetData(CachingKey.unlock_method, 1);
+      Navigator.pop(context, 1);
     }else{
       gestureStateKey.currentState.selectColor = Colors.red;
     }
@@ -84,9 +84,6 @@ class _PatternUnlockState extends State<PatternUnlock> {
               },
               onPanDown: () {
                 gestureStateKey.currentState.selectColor = Colors.blue;
-                setState(() {
-                  status = 0;
-                });
               },
             ),
           ),
