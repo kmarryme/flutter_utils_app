@@ -129,7 +129,7 @@ class _IndexState extends State<Index> {
       ),
       onTap: () {
         if (name == "分享") {
-          ShareExtend.share("分享", Config.share);
+          ShareExtend.share(Config.share, "text");
         } else if(name == "反馈"){
           launch("mailto:${Config.email}");
         }else{

@@ -112,6 +112,9 @@ class _FavoriteBodyState extends State<FavoriteBody> {
   void initState() {
     super.initState();
     getFavorite();
+    Future((){
+      Provider.of<CounterModel>(context).changesSearchList([], false);
+    });
   }
   
   void getFavorite() async {
@@ -126,9 +129,6 @@ class _FavoriteBodyState extends State<FavoriteBody> {
         });
         if (mounted) setState(() {});
       }
-    });
-    Future((){
-      Provider.of<CounterModel>(context).changesSearchList([], false);
     });
   }
 
