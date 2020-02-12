@@ -4,6 +4,8 @@ PODS:
     - Flutter
   - local_auth (0.0.1):
     - Flutter
+  - package_info (0.0.1):
+    - Flutter
   - share_extend (0.0.1):
     - Flutter
   - shared_preferences (0.0.1):
@@ -16,9 +18,10 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios-release`)
+  - Flutter (from `.symlinks/flutter/ios`)
   - gesture_recognition (from `.symlinks/plugins/gesture_recognition/ios`)
   - local_auth (from `.symlinks/plugins/local_auth/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
   - share_extend (from `.symlinks/plugins/share_extend/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
@@ -27,11 +30,13 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios-release"
+    :path: ".symlinks/flutter/ios"
   gesture_recognition:
     :path: ".symlinks/plugins/gesture_recognition/ios"
   local_auth:
     :path: ".symlinks/plugins/local_auth/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
   share_extend:
     :path: ".symlinks/plugins/share_extend/ios"
   shared_preferences:
@@ -47,6 +52,7 @@ SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   gesture_recognition: d3941a5afd0223739147402d848d028c028157d0
   local_auth: 2571c49920ae469f46d5557435fad8fa473a5e88
+  package_info: 48b108e75b8802c2d5e126f208ef540561c98aef
   share_extend: b6748dc53695587891126a89533b862b92548c7b
   shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
   url_launcher: a1c0cc845906122c4784c542523d8cacbded5626
