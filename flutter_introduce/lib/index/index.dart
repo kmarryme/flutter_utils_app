@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:share_extend/share_extend.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../configuration.dart';
 import '../utils/counter_model.dart';
 import '../utils/utils_function.dart';
 import 'my_page_view.dart';
@@ -128,9 +129,9 @@ class _IndexState extends State<Index> {
       ),
       onTap: () {
         if (name == "分享") {
-          ShareExtend.share("分享", "text");
+          ShareExtend.share("分享", Config.share);
         } else if(name == "反馈"){
-          launch("mailto:swangke@163.com");
+          launch("mailto:${Config.email}");
         }else{
           Navigator.pushNamed(context, path);
         }
