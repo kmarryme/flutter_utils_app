@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_introduce/configuration.dart';
@@ -122,6 +124,9 @@ class _AboutState extends State<About> {
               top: ScreenUtil().setHeight(20),
               bottom: ScreenUtil().setHeight(20),
             ),
+            padding: EdgeInsets.symmetric(
+              horizontal: ScreenUtil().setWidth(20),
+            ),
             child: Column(
               children: <Widget>[
                 Text(Config.statement,textAlign: TextAlign.center,),
@@ -237,8 +242,13 @@ class _AboutState extends State<About> {
                               ),
                             ),
                             onTap: () {
-                              launch(
+                              if(Platform.isIOS){
+                                launch(
                                   "itms-apps://itunes.apple.com/cn/app/yi-xiao-tong-meng-yu-ban/id1135315222?mt=8");
+                              }else{
+                                
+                              }
+                              
                             },
                           ),
                         ],

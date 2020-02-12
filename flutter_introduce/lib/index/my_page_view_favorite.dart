@@ -18,13 +18,9 @@ class MyPageViewFavorite extends StatefulWidget {
   _MyPageViewFavoriteState createState() => _MyPageViewFavoriteState();
 }
 
-class _MyPageViewFavoriteState extends State<MyPageViewFavorite> with AutomaticKeepAliveClientMixin{
-  @override
-  bool get wantKeepAlive => true; 
-
+class _MyPageViewFavoriteState extends State<MyPageViewFavorite>{
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return Container(
       child: Column(
         children: <Widget>[
@@ -130,6 +126,9 @@ class _FavoriteBodyState extends State<FavoriteBody> {
         });
         if (mounted) setState(() {});
       }
+    });
+    Future((){
+      Provider.of<CounterModel>(context).changesSearchList([], false);
     });
   }
 
