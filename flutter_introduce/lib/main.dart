@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_introduce/routes.dart';
 import 'package:flutter_introduce/utils/utils_function.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -21,8 +22,8 @@ void main() {
   ));
 
   ///强制竖屏
-  // SystemChrome.setPreferredOrientations(
-  //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 }
 
 class MyApp extends StatefulWidget {

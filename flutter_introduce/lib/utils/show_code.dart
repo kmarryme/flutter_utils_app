@@ -35,18 +35,18 @@ class _ShowCodeState extends State<ShowCode> {
           elevation: 0.5,
           centerTitle: true,
           title: Text("本页源码"),
-          leading: IconButton(
-            icon: Icon(Icons.content_copy),
-            onPressed: (){
-              Clipboard.setData(ClipboardData(text: widget.text));
-            },
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.clear),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
+          // leading: IconButton(
+          //   icon: Icon(Icons.content_copy),
+          //   onPressed: (){
+          //     Clipboard.setData(ClipboardData(text: widget.text));
+          //   },
+          // ),
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: Icon(Icons.clear),
+          //     onPressed: () => Navigator.pop(context),
+          //   ),
+          // ],
         ),
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

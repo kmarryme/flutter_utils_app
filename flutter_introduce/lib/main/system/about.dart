@@ -243,8 +243,7 @@ class _AboutState extends State<About> {
                             ),
                             onTap: () {
                               if(Platform.isIOS){
-                                launch(
-                                  "itms-apps://itunes.apple.com/cn/app/yi-xiao-tong-meng-yu-ban/id1135315222?mt=8");
+                                launch("itms-apps://itunes.apple.com/cn/app/");
                               }else{
                                 
                               }
