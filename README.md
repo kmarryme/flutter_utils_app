@@ -1,2 +1,5 @@
 # flutter_utils_app
-flutter 学习工具app
+This project is used by me to practice "Flutter".
+
+I hope to help myself and more people.
+
