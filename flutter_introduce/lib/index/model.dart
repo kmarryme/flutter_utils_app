@@ -14,11 +14,11 @@ class Data {
     Model(Icon(Icons.radio_button_checked), "RadioListTile", MyRadioListTile()),
     Model(Icon(Icons.check_box), "CheckBox", MyCheckBox()),
     Model(Icon(Icons.check_box), "CheckboxListTile", MyCheckboxListTile()),
-    Model(Icon(Icons.add_box), "Button", MyText()),
-    Model(Icon(Icons.switch_camera), "Switch", MyText()),
-    Model(Icon(Icons.input), "Input", MyText()),
-    Model(Icon(Icons.image), "Image", MyText()),
-    Model(Icon(Icons.insert_emoticon), "Icon", MyText()),
+    // Model(Icon(Icons.add_box), "Button", MyText()),
+    // Model(Icon(Icons.switch_camera), "Switch", MyText()),
+    // Model(Icon(Icons.input), "Input", MyText()),
+    // Model(Icon(Icons.image), "Image", MyText()),
+    // Model(Icon(Icons.insert_emoticon), "Icon", MyText()),
   ];
 }
 
