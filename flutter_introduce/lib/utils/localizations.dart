@@ -161,5 +161,13 @@ class ChineseCupertinoLocalizations implements CupertinoLocalizations {
   static const LocalizationsDelegate<CupertinoLocalizations> delegate = _ChineseCupertinoLocalizationsDelegate();
 
   @override
-  String get todayLabel => null;
+  String get todayLabel => "今天";
+
+  @override
+  String get modalBarrierDismissLabel => "清除";
+
+  @override
+  String tabSemanticsLabel({int tabIndex, int tabCount}) {
+    return "$tabIndex/$tabCount";
+  }
 }
