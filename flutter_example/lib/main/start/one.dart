@@ -47,7 +47,12 @@ class One extends StatelessWidget {
                 child: Container(
                   width: 150,
                   height: 400,
-                  color: Colors.red,
+                  alignment: Alignment.center,
+                  color: Colors.black.withOpacity(0.2),
+                  child: FlutterLogo(
+                    style: FlutterLogoStyle.stacked,
+                    size: 150,
+                  ),
                 ),
               ),
             ],
@@ -63,12 +68,15 @@ class One extends StatelessWidget {
           },
           child: Column(
             children: <Widget>[
-              Text("12345",style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5)),
+              Text(
+                "快速开发",
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5),
+              ),
               SizedBox(height: 16),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 28),
                 child: Text(
-                  "123456789012345678901234567890",
+                  "Flutter的热重载可帮助您快速地进行测试、构建UI、添加功能并更快地修复错误。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,

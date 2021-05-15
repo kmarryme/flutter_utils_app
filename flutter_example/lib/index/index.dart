@@ -125,9 +125,10 @@ class _IndexState extends State<Index> {
   }
 
   List<Widget> getItemList() {
-    if(Platform.isMacOS || Platform.isWindows || Platform.isLinux){
+    if(Platform.isAndroid || Platform.isIOS){
       return <Widget>[
         getItem("收藏", Icons.favorite, "/favorite"),
+        getItem("分享", Icons.share, ""),
         getItem("设置", Icons.settings, "/setting"),
         getItem("反馈", Icons.email, ""),
         getItem("关于", Icons.help, "/about"),
@@ -135,7 +136,6 @@ class _IndexState extends State<Index> {
     }
     return <Widget>[
       getItem("收藏", Icons.favorite, "/favorite"),
-      getItem("分享", Icons.share, ""),
       getItem("设置", Icons.settings, "/setting"),
       getItem("反馈", Icons.email, ""),
       getItem("关于", Icons.help, "/about"),
@@ -154,7 +154,7 @@ class _IndexState extends State<Index> {
       ),
       onTap: () {
         if (name == "分享") {
-          ShareExtend.share(Config.share, "text");
+          ShareExtend.share(Config.share, "text",);
         } else if(name == "反馈"){
           launch("mailto:${Config.email}");
         }else{

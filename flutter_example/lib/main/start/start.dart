@@ -244,35 +244,13 @@ class _StartIndexState extends State<StartIndex> {
           Padding(
             padding: EdgeInsets.fromLTRB(
                 20, MediaQuery.of(context).padding.top, 20, 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  "FLUTTER",
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontFamily: "Graphik",
-                      fontWeight: FontWeight.w800),
-                ),
-                Stack(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.shopping_basket),
-                      onPressed: () {},
-                    ),
-                    Positioned(
-                      right: 10,
-                      bottom: 8,
-                      child: Container(
-                        width: 12,
-                        height: 12,
-                        decoration: BoxDecoration(
-                            color: Colors.white, shape: BoxShape.circle),
-                      ),
-                    )
-                  ],
-                )
-              ],
+            child: Text(
+              "FLUTTER",
+              style: TextStyle(
+                fontSize: 22,
+                fontFamily: "Graphik",
+                fontWeight: FontWeight.w800,
+              ),
             ),
           ),
           Expanded(

@@ -54,6 +54,7 @@ class _MyAppState extends State<MyApp> {
         return MaterialApp(
           title: 'Flutter example',
           debugShowCheckedModeBanner: false, //不显示右上角Debug字样
+          // showPerformanceOverlay: true,
           onGenerateRoute: onGenerateRoute, //路由文件
           theme: context.watch<CounterModel>().appTheme
               ? AppTheme.whiteVersionTheme

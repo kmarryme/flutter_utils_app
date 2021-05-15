@@ -378,7 +378,7 @@ class _GuideSettingState extends State<GuideSetting> {
             children: <Widget>[
               Icon(Icons.phone_android),
               Text(
-                "APP启动是否显示引导页面",
+                "启动是否显示引导页面",
                 style: TextStyle(
                   fontSize: 16,
                 ),

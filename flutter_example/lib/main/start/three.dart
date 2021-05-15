@@ -45,7 +45,19 @@ class Three extends StatelessWidget {
                 child: Container(
                   width: 150,
                   height: 400,
-                  color: Colors.red,
+                  alignment: Alignment.center,
+                  child: FlutterLogo(size: 200),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.black.withOpacity(0.2),
+                        Colors.blueAccent.withOpacity(0.2),
+                        Colors.blue,
+                      ],
+                    ),
+                  ),
                 ),
               )
             ],
@@ -59,7 +71,10 @@ class Three extends StatelessWidget {
               child: child,
             );
           },
-          child: Text("12345",style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5)),
+          child: Text(
+            "开始使用",
+            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5),
+          ),
         ),
         SizedBox(height: 20),
         Consumer<CounterModel>(
@@ -72,7 +87,7 @@ class Three extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 28),
             child: Text(
-              "123456789012345678901234567890",
+              "现在就试试Flutter，入门很简单。",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,

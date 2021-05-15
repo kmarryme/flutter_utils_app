@@ -57,7 +57,9 @@ class Two extends StatelessWidget {
                 child: Container(
                   width: 150,
                   height: 400,
-                  color: Colors.red,
+                  alignment: Alignment.center,
+                  color: Colors.blueAccent.withOpacity(0.2),
+                  child: FlutterLogo(style: FlutterLogoStyle.stacked, size: 150),
                 ),
               )
             ],
@@ -83,12 +85,15 @@ class Two extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text("12345",style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5)),
+              Text(
+                "全新体验",
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900, letterSpacing: 5),
+              ),
               SizedBox(height: 16),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 28),
                 child: Text(
-                  "123456789012345678901234567890",
+                  "使用Flutter内置美丽的Material和Cupertino Widget为用户带来全新体验。",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
